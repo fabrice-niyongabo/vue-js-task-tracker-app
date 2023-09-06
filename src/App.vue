@@ -12,7 +12,9 @@ export default {
 };
 </script>
 
-<style>
+<!-- scoped make all the styles only apply to this component -->
+<!-- <style scoped > -->
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

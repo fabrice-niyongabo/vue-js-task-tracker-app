@@ -31,4 +31,7 @@ export default {
   align-items: center;
   border-bottom: 1px solid #ccc;
 }
+.header-contents h1 {
+  text-transform: capitalize;
+}
 </style>

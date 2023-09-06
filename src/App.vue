@@ -10,6 +10,34 @@ export default {
     // register components here so that it can be used by our app
     Header,
   },
+  data() {
+    //here is where we put the data of our component
+    //its an like a area where we define our state variables
+    tasks: [];
+  },
+  created() {
+    //this is what we call life cycle method
+    //code below run after the component has been created
+    //it is similar to useEffect in react
+    this.tasks = [
+      {
+        id: 1,
+        title: "Learning vue.JS",
+        date: "07/09/2023",
+        time: "08:17",
+        riminder: true,
+      },
+      {
+        id: 2,
+        title: "Finishing Amani steel MIS tasks",
+        date: "07/09/2023",
+        time: "08:17",
+        riminder: false,
+      },
+    ];
+    //############
+    //to access our state data we use this keyword
+  },
 };
 </script>
 

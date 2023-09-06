@@ -1,6 +1,6 @@
 <template lang="html">
     <div class="container">
-        <div class="task-container border" v-for="task in tasks">
+        <div class="task-container border" :key="task.id" v-for="task in tasks">
             <h3>{{ task.title }}</h3>
         </div>
     </div>

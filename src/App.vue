@@ -1,19 +1,28 @@
 <template>
   <Header title="Task tracker app" />
+  <!-- inorder to make our component's attributes dynamic -->
+  <!-- we have to bind it first  -->
+  <!-- we use v-bind -->
+  <!-- or simply add a :before it -->
+  <Tasks :tasks="tasks" />
 </template>
 
 <script>
 import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 export default {
   name: "App",
   components: {
     // register components here so that it can be used by our app
     Header,
+    Tasks,
   },
   data() {
     //here is where we put the data of our component
     //its an like a area where we define our state variables
-    tasks: [];
+    return {
+      tasks: [],
+    };
   },
   created() {
     //this is what we call life cycle method

@@ -1,13 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  <Header title="Task tracker app" />
 </template>
 
 <script>
+import Header from "./components/Header";
 export default {
   name: "App",
   components: {
-    // HelloWorld,
+    // register components here so that it can be used by our app
+    Header,
   },
 };
 </script>

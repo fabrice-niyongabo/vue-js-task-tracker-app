@@ -5,7 +5,7 @@
           <!-- we dont use blackets to envoke the function so that it will be able to catch whatever params that has been sent by the child component -->
             <!-- <TaskItem @delete-task="onDelete" :task="task" /> -->
             <!-- emmiting directly to the main parent component -->
-            <TaskItem @delete-task="$emit('delete-task', task.id)" :task="task" />
+            <TaskItem @delete-task="$emit('delete-task', task.id)" @toggle-reminder="$emit('toggle-reminder',task.id)" :task="task" />
         </div>
     </div>
     
@@ -25,6 +25,7 @@ export default {
       console.log({ id });
     },
   },
+  emits: ["delete-task", "toggle-reminder"],
 };
 </script>
 <style lang="css">

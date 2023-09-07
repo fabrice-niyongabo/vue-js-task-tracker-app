@@ -4,7 +4,11 @@
   <!-- we have to bind it first  -->
   <!-- we use v-bind -->
   <!-- or simply add a :before it -->
-  <Tasks :tasks="tasks" @delete-task="deleteTask" />
+  <Tasks
+    :tasks="tasks"
+    @delete-task="deleteTask"
+    @toggle-reminder="toggleReminder"
+  />
 </template>
 
 <script>
@@ -25,10 +29,15 @@ export default {
     };
   },
   methods: {
+    //Reminder
+    //this keyword only works for a regular js fx not an arrow function
     deleteTask(taskId) {
-      //Reminder
-      //this keyword only works for a regular js fx not an arrow function
       this.tasks = this.tasks.filter((task) => task.id !== taskId);
+    },
+    toggleReminder(taskId) {
+      this.tasks = this.tasks.map((task) =>
+        task.id === taskId ? { ...task, reminder: !task.reminder } : task
+      );
     },
   },
   created() {
@@ -41,14 +50,14 @@ export default {
         title: "Learning vue.JS",
         date: "07/09/2023",
         time: "08:17",
-        riminder: true,
+        reminder: true,
       },
       {
         id: 2,
         title: "Finishing Amani steel MIS tasks",
         date: "07/09/2023",
         time: "08:17",
-        riminder: false,
+        reminder: false,
       },
     ];
     //############

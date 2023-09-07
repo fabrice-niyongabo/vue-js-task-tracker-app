@@ -4,7 +4,7 @@
   <!-- we have to bind it first  -->
   <!-- we use v-bind -->
   <!-- or simply add a :before it -->
-  <Tasks :tasks="tasks" />
+  <Tasks :tasks="tasks" @delete-task="deleteTask" />
 </template>
 
 <script>
@@ -23,6 +23,13 @@ export default {
     return {
       tasks: [],
     };
+  },
+  methods: {
+    deleteTask(taskId) {
+      //Reminder
+      //this keyword only works for a regular js fx not an arrow function
+      this.tasks = this.tasks.filter((task) => task.id !== taskId);
+    },
   },
   created() {
     //this is what we call life cycle method

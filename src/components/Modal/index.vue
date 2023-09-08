@@ -1,5 +1,8 @@
 <template>
-  <div :class="[showModal ? 'd-block' : 'd-none', 'modal fade show']">
+  <div
+    :class="[showModal ? 'd-block' : 'd-none', 'modal fade show']"
+    @click.self="$emit('toggle-modal')"
+  >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

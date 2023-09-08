@@ -6,7 +6,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">Add new task</h5>
           <button
             type="button"
             class="close btn"
@@ -16,17 +16,32 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          <button
-            type="button"
-            class="btn btn-secondary"
-            @click="$emit('toggle-modal')"
-          >
-            Close
-          </button>
+          <form>
+            <div class="form-group mb-3">
+              <label for="">Task Title</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter task title"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <label for="">Date</label>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="Enter task date"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <label for="">Time</label>
+              <input
+                type="time"
+                class="form-control"
+                placeholder="Enter task time"
+              />
+            </div>
+          </form>
         </div>
       </div>
     </div>

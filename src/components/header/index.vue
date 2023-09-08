@@ -5,7 +5,7 @@
             <button class="btn btn-primary" @click="handleAddTask()">Add Task</button></div>
         </div>
       
-    </header>
+    </header> 
 </template>
 <script>
 export default {
@@ -18,8 +18,8 @@ export default {
   },
   methods: {
     //here we define methods that can be accessed inside our template
-    handleAddTask: () => {
-      alert("task button clicked");
+    handleAddTask() {
+      this.$emit("toggle-modal");
     },
   },
 };

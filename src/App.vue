@@ -1,5 +1,5 @@
 <template>
-  <Header title="Task tracker app" />
+  <Header title="Task tracker app" @toggle-modal="toggleShowModal" />
   <!-- inorder to make our component's attributes dynamic -->
   <!-- we have to bind it first  -->
   <!-- we use v-bind -->
@@ -9,35 +9,43 @@
     @delete-task="deleteTask"
     @toggle-reminder="toggleReminder"
   />
+  <Modal :showModal="showModal" @toggle-modal="toggleShowModal" />
 </template>
 
 <script>
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import Modal from "./components/Modal";
 export default {
   name: "App",
   components: {
     // register components here so that it can be used by our app
     Header,
     Tasks,
+    Modal,
   },
   data() {
     //here is where we put the data of our component
     //its an like a area where we define our state variables
     return {
       tasks: [],
+      showModal: false,
     };
   },
   methods: {
     //Reminder
     //this keyword only works for a regular js fx not an arrow function
     deleteTask(taskId) {
-      this.tasks = this.tasks.filter((task) => task.id !== taskId);
+      if (confirm("Do you want to delete this task?"))
+        this.tasks = this.tasks.filter((task) => task.id !== taskId);
     },
     toggleReminder(taskId) {
       this.tasks = this.tasks.map((task) =>
         task.id === taskId ? { ...task, reminder: !task.reminder } : task
       );
+    },
+    toggleShowModal() {
+      this.showModal = !this.showModal;
     },
   },
   created() {

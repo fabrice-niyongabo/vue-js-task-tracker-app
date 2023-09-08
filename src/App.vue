@@ -9,7 +9,11 @@
     @delete-task="deleteTask"
     @toggle-reminder="toggleReminder"
   />
-  <Modal :showModal="showModal" @toggle-modal="toggleShowModal" />
+  <Modal
+    :showModal="showModal"
+    @toggle-modal="toggleShowModal"
+    @add-task="handleAddTask"
+  />
 </template>
 
 <script>
@@ -46,6 +50,9 @@ export default {
     },
     toggleShowModal() {
       this.showModal = !this.showModal;
+    },
+    handleAddTask(task) {
+      this.tasks = [...this.tasks, task];
     },
   },
   created() {

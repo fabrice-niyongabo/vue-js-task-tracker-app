@@ -84,10 +84,27 @@ export default {
     },
   },
   created() {
-    this.title = "";
-    this.date = "";
-    this.time = "";
-    this.reminder = false;
+    //this will run only once
+    // this.title = "";
+    // this.date = "";
+    // this.time = "";
+    // this.reminder = false;
+  },
+  watch: {
+    //this is like useeffect
+    //we are going to watch the showModal attribute whenever it changes
+    //this method comes with two optional parameters
+    // showModal(newValue,oldValue) {
+    showModal() {
+      // this method must be the same as the attribute that we are watching
+      if (this.showModal) {
+        //reset our state
+        this.title = "";
+        this.date = "";
+        this.time = "";
+        this.reminder = false;
+      }
+    },
   },
 };
 </script>
